@@ -1,0 +1,92 @@
+@use "../mixins/mixins" as *;
+@use "../variables/variables" as *;
+
+.about {
+  & .text__Square--bg {
+    text-align: left;
+  }
+
+  &__image,
+  &__text {
+    width: calc(50% - 35px);
+  }
+
+  &__text {
+    padding-right: 70px;
+  }
+
+  &__paragraph {
+    line-height: 1.4;
+    font-size: $font-size-small;
+    color: $paragraph-gray;
+  }
+
+  &__image {
+    height: 100vh;
+    overflow: hidden;
+
+    & img {
+      display: block;
+      @include background-image(100%, 100%);
+      object-fit: cover;
+    }
+  }
+}
+
+.about__container {
+  @include flex-container();
+}
+
+@include responsive(992px) {
+  .about__container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about__image,
+  .about__text {
+    width: 100%;
+  }
+
+  .about__image {
+    height: 60vh;
+  }
+
+  .about__text {
+    padding: 0 20px;
+  }
+
+  .about .text__Square--bg,
+  .benefits .text__Square--bg {
+    text-align: center;
+  }
+
+  .rotate__square {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@include responsive(600px) {
+  .about {
+    padding: 80px 5%;
+  }
+
+  .about__image {
+    height: 50vh;
+  }
+
+  .about__text {
+    padding: 0;
+  }
+
+  .text__Square--bg {
+    font-size: 10vw;
+  }
+
+  .rotate__square {
+    width: 50px;
+    height: 50px;
+  }
+}

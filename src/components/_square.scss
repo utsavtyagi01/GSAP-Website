@@ -1,0 +1,24 @@
+@use "../mixins/mixins" as *;
+@use "../variables/variables" as *;
+
+.text__Square--bg {
+  position: relative;
+  margin-bottom: 60px;
+  line-height: 0.75;
+  font-size: 70px;
+  text-align: center;
+  color: $primary-color;
+  text-transform: uppercase;
+}
+
+.text__Square--bg .hollow {
+  @include text-stroke(1px, $primary-color);
+}
+
+.rotate__square {
+  display: inline-block;
+  @include background-image(125px, 125px);
+  border: 1px solid $paragraph-gray;
+  @include absolute-center();
+  z-index: -10;
+}

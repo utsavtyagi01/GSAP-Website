@@ -1,0 +1,41 @@
+@mixin flex-container(
+  $justify: space-between,
+  $align: center,
+  $direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin background-image($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin grid($columns, $gap) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+@mixin text-stroke($size, $color) {
+  color: transparent;
+  -webkit-text-stroke: $size $color;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,145 @@
+@use "../mixins/mixins" as *;
+@use "../variables/variables" as *;
+
+.benefits {
+  &__content {
+    justify-content: center;
+    width: 100%;
+    @include grid(3, 40px);
+    &--number {
+      display: inline-block;
+      font-size: $benefits-number-lg;
+      @include text-stroke(1px, $primary-color);
+    }
+  }
+
+  &__paragraph {
+    font-size: $font-size-small;
+    color: $paragraph-gray;
+  }
+}
+.benefits__container {
+  width: 100%;
+  padding: 0 70px;
+}
+
+@include responsive(1100px) {
+  .benefits__container {
+    margin-top: 25vh;
+  }
+}
+
+@include responsive(900px) {
+  .benefits__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  section.benefits {
+    padding-top: 10px;
+  }
+}
+
+@include responsive(868px) {
+  .benefits__container {
+    margin-top: 40vh;
+  }
+}
+@include responsive(720px) {
+  .benefits__container {
+    margin-top: 60vh;
+  }
+}
+
+@include responsive(712px) {
+  .benefits .text__Square--bg {
+    font-size: 60px;
+  }
+}
+
+@include responsive(650px) {
+  .benefits__content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .benefits__content--number {
+    font-size: $benefits-number-sm;
+  }
+
+  .benefits__paragraph {
+    font-size: $font-size-small;
+  }
+}
+@include responsive(600px) {
+  .benefits .text__Square--bg {
+    font-size: 50px;
+  }
+}
+
+@include responsive(540px) {
+  .benefits .text__Square--bg {
+    font-size: 40px;
+  }
+}
+
+@include responsive(500px) {
+  .benefits__paragraph {
+    font-size: 5vw;
+  }
+}
+
+@include responsive(400px) {
+  .benefits__container {
+    padding: 0px;
+  }
+  .benefits__content {
+    padding: 0px 40px;
+  }
+}
+
+@include responsive(450px) {
+  .benefits .text__Square--bg {
+    font-size: 30px;
+  }
+}
+
+@include responsive(365px) {
+  // .benefits__container {
+  //   padding: 0px 50px;
+  // }
+  .benefits__heading {
+    text-align: center;
+  }
+  .benefits .text__Square--bg {
+    font-size: $font-size-small;
+  }
+}
+@include responsive(350px) {
+  // .benefits__paragraph{
+  // 	font-size: 15px;
+  // }
+  .benefits__container {
+    margin-top: 20rem;
+  }
+}
+
+@include responsive(290px) {
+  section.benefits {
+    padding-top: 0px;
+  }
+  // .benefits__container {
+  //   padding: 0px 45px;
+  // }
+  .benefits .text__Square--bg {
+    font-size: 15px;
+  }
+}
+
+@include responsive(250px) {
+  .benefits__container {
+    margin-top: 15rem;
+  }
+}
+@include responsive(150px) {
+  .benefits .text__Square--bg {
+    font-size: 9vw;
+  }
+}
