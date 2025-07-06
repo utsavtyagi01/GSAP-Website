@@ -1,0 +1,91 @@
+@use "../mixins/mixins" as *;
+@use "../variables/variables" as *;
+
+.portfolio {
+  padding-top: 150px;
+
+  &__content {
+    row-gap: 120px;
+    padding: 0 120px;
+    @include flex-container(space-between, center, row, wrap);
+
+    &--child {
+      position: relative;
+      width: calc(50% - 60px);
+      height: 100vh;
+    }
+
+    &--number {
+      position: absolute;
+      display: inline-block;
+      font-size: $portfolio-number-lg;
+      color: $primary-color;
+      mix-blend-mode: difference;
+      z-index: 2;
+    }
+
+    &--image {
+      @include background-image(100%, 100%);
+      overflow: hidden;
+
+      & img {
+        display: block;
+        @include background-image(100%, 100%);
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@include responsive(1024px) {
+  .portfolio__content--child {
+    width: calc(50% - 4vw);
+    height: 70vh;
+  }
+}
+
+@include responsive(768px) {
+  .portfolio__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 3vw;
+  }
+
+  .portfolio__content--child {
+    width: 90%;
+    height: auto;
+  }
+  .portfolio__heading {
+    font-size: 60px;
+    text-align: center;
+  }
+}
+
+@include responsive(600px) {
+  .portfolio__heading {
+    font-size: 9vw;
+    text-align: center;
+  }
+}
+@include responsive(500px) {
+  .portfolio,
+  section.portfolio {
+    padding-top: 60px;
+  }
+}
+
+@include responsive(480px) {
+  .portfolio__content {
+    padding: 0 3vw;
+  }
+
+  .portfolio__content--child {
+    width: 100%;
+  }
+}
+
+@include responsive(300px) {
+  .portfolio__content--number {
+    font-size: 20vw;
+  }
+}

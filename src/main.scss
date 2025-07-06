@@ -1,0 +1,41 @@
+@use "./components/square" as *;
+@use "./components/about" as *;
+@use "./components/benefits" as *;
+@use "./components/footer" as *;
+@use "./components/header" as *;
+@use "./components/portfolio" as *;
+@use "./components/services" as *;
+@use "./mixins/mixins" as *;
+@use "./variables/variables" as *;
+
+* {
+  box-sizing: border-box;
+  font-family: "Syne", sans-serif;
+  font-weight: $font-weight-bold;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  background: $second-color;
+}
+
+section {
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+
+.main__container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.letter {
+  display: inline-block;
+}

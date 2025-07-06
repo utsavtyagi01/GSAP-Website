@@ -1,0 +1,93 @@
+@use "../mixins/mixins" as *;
+@use "../variables/variables" as *;
+
+.services {
+  &__content--child {
+    position: relative;
+    padding: 40px 0;
+    border-bottom: 1px solid #2f2e2e;
+  }
+
+  &__content--image {
+    position: absolute;
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    & img {
+      display: block;
+      @include background-image(100%, 100%);
+      object-fit: contain;
+      transform: rotate(180deg);
+    }
+  }
+
+  &__content--text {
+    font-size: 50px;
+    color: $paragraph-gray;
+    text-transform: uppercase;
+  }
+}
+.services__container {
+  width: 100%;
+  padding: 0 70px;
+}
+
+.services__content--child .services__content--text {
+  font-size: 4vw;
+}
+
+@include responsive(1024px) {
+  .services__content--text {
+    font-size: 35px;
+  }
+  .services__content--image {
+    width: 45px;
+    height: 45px;
+  }
+}
+@include responsive(768px) {
+  .services__content--image {
+    margin-bottom: 10px;
+  }
+  .services__content--text {
+    font-size: 30px;
+  }
+  .services__content--image {
+    width: 40px;
+    height: 40px;
+  }
+  .services__heading {
+    font-size: 9vw;
+  }
+}
+
+@include responsive(550px) {
+  .services__container {
+    padding: 0px 3vw;
+  }
+
+  .services__content--child {
+    padding-left: 20px;
+  }
+}
+
+@include responsive(480px) {
+  .services__content--text {
+    font-size: 25px;
+  }
+  .services__content--image {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@include responsive(300px) {
+  .services__content--image {
+    width: 25px;
+    height: 25px;
+  }
+}

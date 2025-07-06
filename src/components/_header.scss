@@ -1,0 +1,135 @@
+@use "../mixins/mixins" as *;
+@use "../variables/variables" as *;
+
+.header {
+  position: relative;
+  padding: 0 $padding-default;
+  width: 100%;
+  height: 100vh;
+  @include flex-container(center, center);
+
+  &__slider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: $background-dark;
+    overflow: hidden;
+
+    &--content {
+      @include flex-container();
+      width: 100%;
+      height: auto;
+      padding: 10px $padding-default;
+    }
+
+    &--text {
+      position: relative;
+      flex: 0 0 auto;
+      display: inline-block;
+      padding-right: 55px;
+      margin-right: 15px;
+      text-transform: uppercase;
+      color: $primary-color;
+      color: $text-gray;
+      font-size: $font-size-medium;
+    }
+
+    &--image {
+      position: absolute;
+      @include background-image(40px, 40px);
+      right: 0;
+
+      & img {
+        @include background-image(100%, 100%);
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    margin: 0;
+    font-size: $header-title-lg;
+    text-align: center;
+    color: $primary-color;
+    text-transform: uppercase;
+    mix-blend-mode: difference;
+    z-index: 10;
+
+    &--fill {
+      display: inline-block;
+      will-change: transform;
+      white-space: nowrap;
+    }
+
+    &--transparent {
+      display: inline-block;
+      @include text-stroke(1px, $primary-color);
+    }
+  }
+
+  &__img {
+    position: absolute;
+    @include background-image(45%, 100%);
+    top: 0;
+    right: 6.25rem;
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    overflow: hidden;
+  }
+
+  & img {
+    @include background-image(100%, 100%);
+    object-fit: cover;
+  }
+}
+
+@include responsive(1300px){
+  .header__title--fill{
+    font-size: 6vw;
+  }
+}
+
+@include responsive(1100px) {
+  .header__title {
+    font-size: $header-title-md;
+  }
+}
+
+@include responsive(768px) {
+  .header__title {
+    font-size: $header-title-sm;
+  }
+
+  .header__slider {
+    padding: 5px 0;
+  }
+
+  .header__slider--content {
+    gap: 15px;
+  }
+  .header__slider--image {
+    @include background-image(20px, 20px);
+  }
+
+  .header__slider--text {
+    font-size: clamp(12px, 3vw, 28px);
+  }
+}
+
+@include responsive(480px) {
+  .header__title {
+    font-size: 10vw;
+  }
+
+  .header__slider--content {
+    gap: 10px;
+  }
+
+  .header__slider--text {
+    font-size: 3.5vw;
+  }
+  .header__slider--image {
+    @include background-image(10px, 10px);
+  }
+}
